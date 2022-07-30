@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Wave from '../components/wave' 
+import Wave from '../components/wave'
 import './Simulation.css';
 
 
@@ -48,23 +48,35 @@ export class Simulation extends Component {
             <h4>Simulation</h4>
           </div>
           <div className='row' id='bd'>
-            <div className='col-12 col-md-6'>
+            <div className='col-12 col-lg-6'>
               <form onSubmit={this.assign}>
-                <b id='ampli'>Select Amplitude:</b>
-                <br></br>
-                <input id='amp' type='range' min='-100' max='100'onInput={this.check} required></input><br/>
-                <b id='slctdampli'>Selected Value: </b>
-                <label id='val'>50</label><br/>
-                <br></br>
-                <b id='data'>Binary Data: </b>
-                <br></br>
-                <input id='inp' required></input>
-                <br></br>
-                <br></br>
-                <button type='submit' className='btn btn-primary'>Submit</button>
+                <div className='row'>
+                  <div className='col-5'>
+                  <br/>
+                  <b id='ampli'>Select Amplitude:</b>
+                  <br/>
+                  <input id='amp' type='range' min='-100' max='100'onInput={this.check} required></input><br/>
+                  <b id='slctdampli'>Selected Value: </b>
+                  <label id='val'>50</label><br/>
+                  </div>
+                  <div className='col-6'>
+                    <img src={require("../img/diag.png")} width="100%" alt="circuit"/>
+                  </div>
+                </div>
+                <div className='row'>
+                <div className='col-6'/>
+                <div className='col-5 col-lg-6'>
+                  <b id='data'>Binary Data: </b>
+                  <br/>
+                  <input id='inp' size="10" required></input>
+                  <br/><br/>
+                  <button type='submit' className='btn btn-primary'>Submit</button>
+                  <br></br>
+                </div>
+                </div>
               </form>
             </div>
-            <div className='col-11 col-md-6' >
+            <div className='col-11 col-lg-6' >
                 {msg}
             </div>
           </div>

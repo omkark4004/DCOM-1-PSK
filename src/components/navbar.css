@@ -17,29 +17,15 @@ img{
     margin-top:5%;
     margin-bottom:5%;
 }
-@media only screen and (min-width: 600px) {
-    img{
-        margin-left:10%;
-        margin-right:10%;
-    }
-    #opt{
-        padding-right: 1%;
-    }
-    #logo {
-        margin:0%;
-    }
+img{
+    margin-left:10%;
+    margin-right:10%;
 }
-@media only screen and (min-width: 900px) {
-    img{
-        margin-left:20%;
-        margin-right:20%;
-    }
-    #opt{
-        padding-right: 0;
-    }
-    #logo {
-        margin:0%;
-    }
+#opt{
+    padding-right: 1%;
+}
+#logo {
+    margin:0%;
 }
 .navbar{
     padding:0;
