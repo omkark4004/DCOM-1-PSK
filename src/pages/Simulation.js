@@ -64,8 +64,15 @@ export class Simulation extends Component {
                   </div>
                 </div>
                 <div className='row'>
-                <div className='col-6'/>
-                <div className='col-5 col-lg-6'>
+                  <div className='col-5'>
+                  <br/>
+                  <b id='ampli'>Select Frequency:</b>
+                  <br/>
+                  <input id='amp' type='range' min='-100' max='100'onInput={this.check} required></input><br/>
+                  <b id='slctdampli'>Selected Value: </b>
+                  <label id='val'>50</label><br/>
+                  </div>
+                  <div className='col-6'>
                   <b id='data'>Binary Data: </b>
                   <br/>
                   <input id='inp' size="10" required></input>
@@ -73,6 +80,9 @@ export class Simulation extends Component {
                   <button type='submit' className='btn btn-primary'>Submit</button>
                   <br></br>
                 </div>
+                </div>
+                <div className='row'>
+                <div className='col-6'/>
                 </div>
               </form>
             </div>
