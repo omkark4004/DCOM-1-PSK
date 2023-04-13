@@ -45,7 +45,7 @@ export class Simulation extends Component {
         <>
         <div className='container'>
           <div className='row' id='simul'>
-            <h4>Simulation</h4>
+            <h4><br/>Simulation</h4>
           </div>
           <div className='row' id='bd'>
             <div className='col-12 col-lg-6'>
@@ -66,10 +66,10 @@ export class Simulation extends Component {
                 <div className='row'>
                   <div className='col-5'>
                   <br/>
-                  <b id='ampli'>Select Frequency:</b>
+                  <b id='freq'>Select Frequency:</b>
                   <br/>
-                  <input id='amp' type='range' min='-100' max='100'onInput={this.check} required></input><br/>
-                  <b id='slctdampli'>Selected Value: </b>
+                  <input id='freq' type='range' min='-100' max='100'onInput={this.check} required></input><br/>
+                  <b id='slctdfreq'>Selected Value: </b>
                   <label id='val'>50</label><br/>
                   </div>
                   <div className='col-6'>
