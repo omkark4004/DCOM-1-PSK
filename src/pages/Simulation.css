@@ -1,0 +1,27 @@
+#bd {
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+    height: auto;
+    background-color: white;
+    border-radius: 20px;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    margin-top: 30px;
+}
+
+#ampli {
+    font-family: Georgia, serif;
+}
+
+#slctdampli{
+    font-family: 'Courier New', monospace;
+}
+
+#data{
+    font-family: Georgia, serif;
+    margin-bottom: 10px;
+}
+
