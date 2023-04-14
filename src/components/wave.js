@@ -4,6 +4,8 @@ import Chart from 'chart.js/auto';
 export const Wave =(props)=>{
     const user=props.user;
     const Amplitude=props.amp;
+    const Frequency=props.freq;
+    // const Frequency=4*Math.PI;
     const data = [];
     let prev;
     let k =2*user.length;
@@ -11,9 +13,9 @@ export const Wave =(props)=>{
     for (let i = 0; i <= k*Math.PI; i+=0.001*k) {
         prev =Amplitude*Math.sin(i);
         if(user[Math.floor((i/(2*Math.PI)))]===0){
-            prev=prev*-1;
+            prev=prev*-1;   
         }
-        data.push({x: i, y: prev});
+        data.push({x: i*(Frequency/(2)), y: prev});
     }
     else{
         for (let i = 0; i <= 2*Math.PI; i+=0.001) {

@@ -9,6 +9,7 @@ export class Simulation extends Component {
       this.state={
           input:false,
           amplitude:1,
+          frequency:2,
           userdata:[]
       }
   }
@@ -16,6 +17,7 @@ export class Simulation extends Component {
       event.preventDefault();
       let val =document.getElementById('inp').value;
       let amplitude =document.getElementById('amp').value;
+      let frequency =document.getElementById('freq').value;
       for(let i =0; i <val.length;i++){
           if(parseInt(val[i])!==0 && parseInt(val[i])!==1){
               alert('Invalid Input');
@@ -33,19 +35,21 @@ export class Simulation extends Component {
       this.setState({
           input:true,
           amplitude:amplitude,
+          frequency:frequency,
           userdata:user
       });
   }
   check = () =>{
     document.getElementById('val').innerText=document.getElementById('amp').value;
+    document.getElementById('freq-val').innerText=document.getElementById('freq').value;
   }
   render() {
-    var msg=<Wave user={this.state.userdata} amp={this.state.amplitude}/>;
+    var msg=<Wave user={this.state.userdata} amp={this.state.amplitude} freq={this.state.frequency}/>;
     return (
         <>
         <div className='container'>
           <div className='row' id='simul'>
-            <h4><br/>Simulation</h4>
+            <h4>Simulation</h4>
           </div>
           <div className='row' id='bd'>
             <div className='col-12 col-lg-6'>
@@ -66,11 +70,12 @@ export class Simulation extends Component {
                 <div className='row'>
                   <div className='col-5'>
                   <br/>
-                  <b id='freq'>Select Frequency:</b>
+                  <b id='freqi'>Select Frequency:</b>
                   <br/>
-                  <input id='freq' type='range' min='-100' max='100'onInput={this.check} required></input><br/>
-                  <b id='slctdfreq'>Selected Value: </b>
-                  <label id='val'>50</label><br/>
+                  <input id='freq' type='range' min='1' max='10' onInput={this.check} required></input><br/>
+                  <b id='slctdfreqi'>Selected Value: </b>
+                  <label id='freq-val'>10</label> PI<br/>
+
                   </div>
                   <div className='col-6'>
                   <b id='data'>Binary Data: </b>
