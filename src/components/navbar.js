@@ -113,7 +113,6 @@ export default function Navbar(props) {
             component="img"
             sx={{
               height: 35,
-              flexGrow: 1,
               display: { xs: 'none', lg: 'block' },
             }}
             my={2}
@@ -134,7 +133,7 @@ export default function Navbar(props) {
                     item
                     component="img"
                     sx={{
-                      height: 45,
+                      height: 40,
                     }}
                     alt={item[0] + '.png'}
                     src={require('../img/' + item[0] + '.png')}
