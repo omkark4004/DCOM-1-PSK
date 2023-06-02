@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import * as answer from '../components/answers.js'
+import * as answer from '../utils/answers.js'
 
 export class Pre_test extends Component {
   check = (event) =>{
