@@ -78,7 +78,7 @@ export default function Navbar(props) {
                     height: 40,
                   }}
                   alt={item[0] + '.png'}
-                  src={require('../img/' + item[0] + '.png')}
+                  src={require('../img/' + item[0].toLowerCase() + '.png')}
                 />
                 <Grid item xs={9}>
                   <ListItemText primary={item[0]} />
@@ -136,7 +136,7 @@ export default function Navbar(props) {
                       height: 40,
                     }}
                     alt={item[0] + '.png'}
-                    src={require('../img/' + item[0] + '.png')}
+                    src={require('../img/' + item[0].toLowerCase() + '.png')}
                   />
                   <Grid item xs={12}>
                     {item[0]}
