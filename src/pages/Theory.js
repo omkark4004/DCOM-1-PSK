@@ -4,27 +4,44 @@ import { Box, Typography } from '@mui/material';
 function Theory() {
   return (
     <Box mx={5}>
-      <Typography variant="h5" marginY={3}>
-        Theory
-      </Typography>
+      <Box sx={{ fontWeight: 'bold', textAlign: 'center', m: 3 }}>Theory</Box>
       <Typography variant="body1" align="justify" marginBottom={1}>
-        With a choice of ASK, FSK and BPSK you might be wondering about which
-        system you'll most likely see. All other things being equal, BPSK is the
-        best performing system in terms of its ability to ignore noise and so it
-        produces the fewest errors at the receiver. FM is the next best and AM
-        is the worst. On that basis, you'd expect that BPSK is the preferred
-        system. However, it's not necessarily the easiest to implement and so in
-        some situations FSK or ASK might be used as they are cheaper to
-        implement. In fact, FSK was used for cheaper dial-up modems.
+      The modulation of digital signals is a process involving switching 
+      (keying) the amplitude, frequency or phase of a sinusoidal carrier 
+      in some way in accordance with the incoming digital data. 
       </Typography>
 
       <Typography variant="body1" align="justify" marginBottom={1}>
-        <b>Phase Shift Keying</b> is the digital modulation technique in which
-        the phase of the carrier signal is changed by varying the sine and
-        cosine inputs at a particular time. PSK technique is widely used for
-        wireless LANs, bio-metric, contactless operations, along with RFID and
-        Bluetooth communications.
+      Three basic schemes exist:<br/> 
+      • Amplitude shift keying (ASK)<br/> 
+      • Frequency shift keying (FSK)<br/> 
+      • Phase shift keying (PSK)
       </Typography>
+
+      <Typography variant="body1" align="justify" marginBottom={1}>
+      In PSK, the phase of the carrier signal is switched between 2 
+      (for BinaryPSK) or more (for M-aryPSK) in response to the 
+      baseband digital data. With PSK the information is contained in 
+      the instantaneous phase of the modulated carrier. Usually this 
+      phase is imposed and measured with respect to a fixed carrier of 
+      known phase – Coherent PSK.
+      </Typography>
+
+      <Typography variant="body1" align="justify" marginBottom={1}>
+      For binary PSK, phase states of 0° and 180° are used.
+      </Typography>
+      
+      <Box
+        component="img"
+        sx={{
+          height: 233,
+          width: 350,
+          maxHeight: { xs: 233, md: 167 },
+          maxWidth: { xs: 350, md: 250 },
+        }}
+        alt="The house from the offer."
+        src={require('../img/bpsk.png')}
+      />
 
       <p align="justify">
         <b>Binary Phase Shift Keying</b>
