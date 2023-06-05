@@ -60,7 +60,10 @@ function Theory() {
         component="img"
         align="center"
         sx={{
-          width: isPhone ? '80%' : '40%',
+          display: 'block',
+          marginLeft: 'auto',
+          marginRight: 'auto',
+          width: isPhone ? '70%' : '40%',
           height: 'auto',
         }}
         src={require('../img/bpsk.png')}
@@ -95,6 +98,9 @@ function Theory() {
       <Box
         component="img"
         sx={{
+          display: 'block',
+          marginLeft: 'auto',
+          marginRight: 'auto',
           width: isPhone ? '80%' : '40%',
           height: 'auto',
         }}
@@ -121,6 +127,9 @@ function Theory() {
       <Box
         component="img"
         sx={{
+          display: 'block',
+          marginLeft: 'auto',
+          marginRight: 'auto',
           width: isPhone ? '80%' : '40%',
           height: 'auto',
         }}
