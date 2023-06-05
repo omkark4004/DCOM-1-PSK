@@ -1,7 +1,8 @@
 import React from 'react';
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, useMediaQuery } from '@mui/material';
 
 function Theory() {
+  const isPhone = useMediaQuery('(max-width: 600px)');
   return (
     <Box mx={5}>
       <Box sx={{ fontWeight: 'bold', textAlign: 'center', m: 3 }}>Theory</Box>
@@ -57,9 +58,10 @@ function Theory() {
       
       <Box
         component="img"
+        align="center"
         sx={{
-          height: 225,
-          width: 500,
+          width: isPhone ? '80%' : '40%',
+          height: 'auto',
         }}
         src={require('../img/bpsk.png')}
       />
@@ -93,8 +95,8 @@ function Theory() {
       <Box
         component="img"
         sx={{
-          height: 225,
-          width: 500,
+          width: isPhone ? '80%' : '40%',
+          height: 'auto',
         }}
         src={require('../img/blockdiagbpsk.png')}
       />
@@ -119,8 +121,8 @@ function Theory() {
       <Box
         component="img"
         sx={{
-          height: 300,
-          width: 500,
+          width: isPhone ? '80%' : '40%',
+          height: 'auto',
         }}
         src={require('../img/spectrum.png')}
       />
