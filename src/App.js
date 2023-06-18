@@ -1,3 +1,4 @@
+import React from 'react';
 import Aim from './pages/Aim';
 import Theory from './pages/Theory';
 import Procedure from './pages/Procedure';

@@ -1,4 +1,4 @@
 var pretest =['a','b','a','d','c'];
-var posttest=['c','b','d','b','d'];
+var posttest=['b','a','a','b','a'];
 
 export{pretest, posttest};
