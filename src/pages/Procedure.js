@@ -42,7 +42,7 @@ function Procedure() {
         </p>
         <p align="center">
         <figure>
-          <img src={require("../img/simulation2.png")} width="900" height="350" margin="0%"></img>
+          <img src={require("../img/simulation2.jpeg")} width="900" height="350" margin="0%"></img>
         </figure> 
         </p>
         <br/>
