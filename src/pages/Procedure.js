@@ -1,7 +1,9 @@
 import React from 'react'
+import {Box} from '@mui/material';
 
 function Procedure() {
   return (
+    <Box mx={5}>
     <div className="container" align="center">
       <br/>
       <h4>Procedure</h4>
@@ -45,6 +47,7 @@ function Procedure() {
         </p>
         <br/>
       </div>
+      </Box>
   )
 }
 
