@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import * as answer from '../utils/answers.js'
-import {Container} from '@mui/material';
+import {Box} from '@mui/material';
 
 export class Post_test extends Component {
   check = (event) => {
@@ -18,7 +18,7 @@ export class Post_test extends Component {
   }
   render() {
     return (
-      <Container>
+      <Box mx={5}>
       <div className="container" align="center">
         <br />
         <h4>Post-Test</h4>
@@ -140,7 +140,7 @@ export class Post_test extends Component {
           </div>
         </form>
       </div>
-      </Container>
+      </Box>
     )
   }
 }
