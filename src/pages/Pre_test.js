@@ -106,7 +106,7 @@
 
 import React, { Component } from 'react'
 import * as answer from '../utils/answers.js'
-import {Container} from '@mui/material';
+import {Box} from '@mui/material';
 export class Pre_test extends Component {
   check = (event) => {
     event.preventDefault();
@@ -123,7 +123,7 @@ export class Pre_test extends Component {
   }
   render() {
     return (
-      <Container>
+      <Box mx={5}>
         <div className="container" align="center">
         <br />
         <h4>Pre-Test</h4>
@@ -203,7 +203,7 @@ export class Pre_test extends Component {
           </div>
         </form>
       </div>
-    </Container>
+    </Box>
     )
   }
 }
