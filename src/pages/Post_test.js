@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import * as answer from '../utils/answers.js'
+import {Container} from '@mui/material';
 
 export class Post_test extends Component {
   check = (event) => {
@@ -17,6 +18,7 @@ export class Post_test extends Component {
   }
   render() {
     return (
+      <Container>
       <div className="container" align="center">
         <br />
         <h4>Post-Test</h4>
@@ -89,8 +91,7 @@ export class Post_test extends Component {
               </div>
               <br />
               <div className="question">
-                <b>Q4. The centre frequency of the Band Pass Filter (BPF) used in Binary Phase Shift
-Keying receiver is __________.</b>
+                <b>Q4. The centre frequency of the Band Pass Filter (BPF) used in Binary Phase Shift Keying receiver is __________.</b>
               </div>
               <div className="answers">
                 <label>
@@ -139,6 +140,7 @@ Keying receiver is __________.</b>
           </div>
         </form>
       </div>
+      </Container>
     )
   }
 }
