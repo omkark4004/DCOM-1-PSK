@@ -35,8 +35,11 @@ export default function Simulation() {
 
   return (
     <Box sx={{ flexGrow: 1, mx: 5 }}>
-      <Typography variant="h5" gutterBottom>
-        Simulation
+      <Typography variant="h6" align="center" gutterBottom>
+        <br />
+        <b>Simulation</b>
+        <br />
+        <br />
       </Typography>
       <Grid container spacing={2}>
         <Grid item xs={6} sm={3}>
@@ -80,7 +83,9 @@ export default function Simulation() {
             Submit
           </Button>
         </Grid>
+        <br />
       </Grid>
+      <br />
       {chart}
     </Box>
   );
