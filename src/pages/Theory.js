@@ -1,78 +1,151 @@
-import React from 'react'
+import React from 'react';
+import { Box, Typography, useMediaQuery } from '@mui/material';
 
 function Theory() {
+  const isPhone = useMediaQuery('(max-width: 600px)');
   return (
-    <div className="container" align="center">
+    <Box mx={5}>
+      <Box sx={{ fontWeight: 'bold', textAlign: 'center', m: 3 }}>Theory</Box>
+      <Typography variant="body1" align="justify" marginBottom={1}>
+      The BPSK involves the phase change of the carrier sine wave 
+      between angles 0° to 180° in accordance withthe data 
+      steam to be transmitted. The Binary Phase Shift Keying can 
+      also be known as Phase Reversal Keying(PRK).The functionality 
+      of the BPSK modulator is very similar to the BASK modulator. 
+      Both use the balanced modulator to multiply the carrier with 
+      modulating signal. But in contrast to BASK, the digital signal 
+      applied as modulating signal to BPSK is bipolar. When the
+      modulating I/P is positive then O/P of the modulator is the sine 
+      wave which is in phase with the carrier where as for the negative 
+      voltage levels the O/P of the modulator is out of phase with the
+      carrier I/P .The unipolar to bipolar data converter converts the 
+      data bit stream to bipolar stream. At the receiver the Square lo 
+      opdetector circuit is used to demodulate the transmitted BPSK signal. 
+      The PLL block locks to the frequency of the signal square O/P and 
+      produces a clean square wave O/P of the same Frequency. To derive the 
+      square wave O/P of the same frequency as the incoming BPSK signal, 
+      the PLL‘s O/P is divided by two in frequency domain using the divided 
+      by two circuit. From the differential bit decoder O/P is a data ‘1’ 
+      when it encounters a level changes and a ‘0’when no change occurs. 
+      Thus the O/P from differential bit decoder is NRZ (L) wave. 
+      </Typography>
       <br/>
-      <h4>Theory</h4>
-      <br/>
-        <p align="justify">
-        With a choice of ASK, FSK and BPSK you might be wondering about which system you'll most likely see. All other things being equal, BPSK is the best performing system in terms of its ability to ignore noise and so it produces the fewest errors at the receiver. 
-        FM is the next best and AM is the worst. On that basis, you'd expect that BPSK is the preferred system. However, it's not necessarily the easiest to implement and so in some situations FSK or ASK might be used as they are cheaper to implement. 
-        In fact, FSK was used for cheaper dial-up modems. </p>
-        
-        <p align="justify">
-          <b>Phase Shift Keying</b>  is the digital modulation technique in which the phase of the carrier signal is changed by varying the sine and cosine inputs at a particular time. PSK technique is widely used for wireless LANs, bio-metric, contactless operations, along with RFID and Bluetooth communications.
-        </p>
+      <Typography variant="body1" align="justify" marginBottom={1}>
+      The modulation of digital signals is a process involving switching 
+      (keying) the amplitude, frequency or phase of a sinusoidal carrier 
+      in some way in accordance with the incoming digital data. 
+      </Typography>
 
-        <p align="justify">
-          <b>Binary Phase Shift Keying</b>
-          <br/>
-          <p align="justify">
-          This is also called as 2-phase PSK or Phase Reversal Keying. In this technique, the sine wave carrier takes two phase reversals such as 0° and 180°.
-          <br/>
-          BPSK is basically a Double Side Band Suppressed Carrier DSBSC modulation scheme, for message being the digital information.
-          </p>
-        </p>
+      <Typography variant="body1" align="justify" marginBottom={1}>
+      Three basic schemes exist:<br/> 
+      • Amplitude shift keying (ASK)<br/> 
+      • Frequency shift keying (FSK)<br/> 
+      • Phase shift keying (PSK)
+      </Typography>
+
+      <Typography variant="body1" align="justify" marginBottom={1}>
+      In PSK, the phase of the carrier signal is switched between 2 
+      (for BinaryPSK) or more (for M-aryPSK) in response to the 
+      baseband digital data. With PSK the information is contained in 
+      the instantaneous phase of the modulated carrier. Usually this 
+      phase is imposed and measured with respect to a fixed carrier of 
+      known phase – Coherent PSK.
+      </Typography>
+
+      <Typography variant="body1" align="justify" marginBottom={1}>
+      For binary PSK, phase states of 0° and 180° are used.
+      </Typography>
+      
+      <Box
+        component="img"
+        align="center"
+        sx={{
+          display: 'block',
+          marginLeft: 'auto',
+          marginRight: 'auto',
+          width: isPhone ? '70%' : '40%',
+          height: 'auto',
+        }}
+        src={require('../img/bpsk.png')}
+      />
+
+      <Typography variant="body1" align="center" marginBottom={1}>
+        Fig.1 BPSK signal
+      </Typography>
+
+      <Typography variant="body1" align="justify" marginBottom={1}>
+      <br/>In PSK the carrier phase changes abruptly at the beginning of 
+      each signal interval while the amplitude remains constant.
+      </Typography>
+
+      <Typography variant="body1" align="justify" marginBottom={1}>
+      b(t) = Binary data, in the form of Polar Non Return to Zero(NRZ) <br/> 
+      Tb =  Duration of one bit<br/> 
+      Eb = transmitted energy  per bit<br/> <br/> 
+      </Typography>
+
+      <Typography variant="h6">
+      <b>• Transmitter</b>
+      </Typography>
+
+      <Typography variant="body1" align="justify" marginBottom={1}>
+      –	Need to represent the binary sequence 0 and 1 in polar form with constant amplitudes, respectively <br/> 
+      – √Eb and + √Eb <br/>           
+      –	Carrier wave is with frequency fc=(nc/Tb)<br/> 
+      –	Required BPSK modulated signal is at the output of the product modulator.<br/> 
+      </Typography>
+
+      <Box
+        component="img"
+        sx={{
+          display: 'block',
+          marginLeft: 'auto',
+          marginRight: 'auto',
+          width: isPhone ? '80%' : '40%',
+          height: 'auto',
+        }}
+        src={require('../img/blockdiagbpsk.png')}
+      />
+
+      <Typography variant="body1" align="center" marginBottom={1}>
+        Fig.2 Block Diagrams for BPSK transmitter<br/>
+      </Typography>
+
+      <Typography variant="body1" align="justify" marginBottom={1}>
+        BPSK signal can be written as:<br/>
+      </Typography>
+
+      <Box
+        component="img"
+        sx={{
+          height: 90,
+          width: 300,
+        }}
+        src={require('../img/bpskformula.png')}
+      />
+      <br/><br/>
+      <Box
+        component="img"
+        sx={{
+          display: 'block',
+          marginLeft: 'auto',
+          marginRight: 'auto',
+          width: isPhone ? '80%' : '40%',
+          height: 'auto',
+        }}
+        src={require('../img/spectrum.png')}
+      />
+      <br/><br/>
+
+      <Typography variant="body1" align="justify" marginBottom={1}>
+      Bandwidth = Highest frequency - lowest frequency<br/>
+                = (fc +f) – (fc - f) = (fc +fb) – (fc - fb)<br/> 
+                = 2 fb<br/>
+      </Typography>
 
         <br/>
-        <p align="justify">
-          <b>BPSK Modulator</b>
-          <br/>
-          The block diagram of Binary Phase Shift Keying consists of the balance modulator which has the carrier sine wave as one input and the binary sequence as the other input. Following is the diagrammatic representation.
-        </p>
-        <figure>
-          <img src={require("../img/bpsk.png")} width="475" height="325" margin="0%"></img>
-          <figcaption >
-            <b>Fig.1 Block Diagram of BPSK Modulator</b></figcaption>
-        </figure>
-        <br/>
-        <p align="justify">
-          The modulation of BPSK is done using a balance modulator, which multiplies the two signals applied at the input. For a zero binary input, the phase will be 0° and for a high input, the phase reversal is of 180°.
-          <br/><br/>
-          Following is the diagrammatic representation of BPSK Modulated output wave along with its given input.
-        </p>
-
-        <figure>
-          <img src={require("../img/modulated-bpsk.png")} width="550" height="325" margin="0%"></img>
-          <figcaption >
-            <b>Fig.2 BPSK Modulated output wave</b></figcaption>
-        </figure>
-
-        <br/>
-        <p align="justify">
-          <b>BPSK Demodulator</b>
-          <br/>
-          The block diagram of BPSK demodulator consists of a mixer with local oscillator circuit, a bandpass filter, a two-input detector circuit. The diagram is as follows.
-        </p>
-
-        <figure>
-          <img src={require("../img/bpsk-deM.png")} width="500" height="300" margin="0%"></img>
-          <figcaption >
-            <b>Fig.3 Block Diagram of BPSK Demodulator</b></figcaption>
-        </figure>
-
-        <br/>
-        <p align="justify">
-          By recovering the band-limited message signal, with the help of the mixer circuit and the band pass filter, the first stage of demodulation gets completed. The base band signal which is band limited is obtained and this signal is used to regenerate the binary message bit stream.
-          <br/><br/>
-          In the next stage of demodulation, the bit clock rate is needed at the detector circuit to produce the original binary message signal. If the bit rate is a sub-multiple of the carrier frequency, then the bit clock regeneration is simplified. To make the circuit easily understandable, a decision-making circuit may also be inserted at the 2nd stage of detection.
-        </p>
-
-        <br/>
-        
-    </div>
-  )
+    </Box>
+  );
 }
 
-export default Theory
+export default Theory;

@@ -1,8 +1,11 @@
-import React from 'react'
+import React from 'react';
+import { Box, Typography } from '@mui/material';
 
 function References() {
   return (
-    <div>References</div>
+    <Box mx={5}>
+      <Box sx={{ fontWeight: 'bold', textAlign: 'center', m: 3 }}>References</Box>
+    </Box>
   )
 }
 

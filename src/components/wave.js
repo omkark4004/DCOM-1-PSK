@@ -1,96 +1,83 @@
-import React,{useEffect} from 'react'
-import Chart from 'chart.js/auto';
+import React, { useEffect, useRef } from 'react';
+import {
+  emptyChart,
+  sineWave,
+  BipolarWave,
+  bpskWave,
+} from '../utils/ChartData';
+import { setAnimation, chartConfig } from '../utils/ChartFunc';
+import { Grid } from '@mui/material';
 
-export const Wave =(props)=>{
-    const user=props.user;
-    const Amplitude=props.amp;
-    const Frequency=props.freq;
-    // const Frequency=4*Math.PI;
-    const data = [];
-    let prev;
-    let k =2*user.length;
-    if(k)
-    for (let i = 0; i <= k*Math.PI; i+=0.001*k) {
-        prev =Amplitude*Math.sin(i);
-        if(user[Math.floor((i/(2*Math.PI)))]===0){
-            prev=prev*-1;   
-        }
-        data.push({x: i*(Frequency/(2)), y: prev});
-    }
-    else{
-        for (let i = 0; i <= 2*Math.PI; i+=0.001) {
-            data.push({x: i, y: null});
-        }
-    }
+export const Wave = (props) => {
+  const user = [];
+  const tmp = props.user;
+  for (let i = 0; i !== tmp.length; i++) {
+    user.push(parseInt(tmp[i]));
+  }
+  const Amplitude = props.amp;
+  const timePeriod = props.tPeriod;
 
-    const totalDuration = k*400;
-    const delayBetweenPoints = totalDuration / data.length;
-    const previousY = (ctx) => ctx.index === 0 ? ctx.chart.scales.y.getPixelForValue(100) : ctx.chart.getDatasetMeta(ctx.datasetIndex).data[ctx.index - 1].getProps(['y'], true).y;
-    const animation = {
-        x: {
-            type: 'number',
-            easing: 'linear',
-            duration: delayBetweenPoints,
-            from: NaN,
-            delay(ctx) {
-                if (ctx.type !== 'data' || ctx.xStarted) {
-                    return 0;
-                }
-                ctx.xStarted = true;
-                return ctx.index * delayBetweenPoints;
-            }
-        },
-        y: {
-            type: 'number',
-            easing: 'linear',
-            duration: delayBetweenPoints,
-            from: previousY,
-            delay(ctx) {
-                if (ctx.type !== 'data' || ctx.yStarted) {
-                    return 0;
-                }
-                ctx.yStarted = true;
-                return ctx.index * delayBetweenPoints;
-            }
-        }
-    }
-    useEffect(() => {
-        var table = document.getElementById('myChart').getContext('2d')
-        var myChart = new Chart(table, {
-            type: "line",
-            data: {
-                datasets: [{
-                    borderColor: 'blue',
-                    borderWidth: 1,
-                    radius: 0,
-                    data: data,
-                    lineTension: 0.5
-                }]
-            },
-            options: {
-                animation,
-                interaction: {
-                    intersect: false
-                },
-                plugins: {
-                    legend: false
-                },
-                scales: {
-                    x: {
-                        type: 'linear'
-                    }
-                }
-            }
-        });
-        return () => {
-            myChart.destroy()
-        }
-    })
-    return (
-        <div id="chart-wrapper">
-            <canvas id="myChart"></canvas>
-        </div>
-    )
-}
+  var sineData, binData, bpskData;
+  let k = 2 * user.length;
+  if (k) {
+    sineData = sineWave(user, timePeriod, Amplitude);
+    binData = BipolarWave(user, timePeriod);
+    bpskData = bpskWave(user, timePeriod, Amplitude);
+  } else {
+    sineData = emptyChart();
+    binData = emptyChart();
+    bpskData = emptyChart();
+  }
 
-export default Wave
+  const sineCanvasRef = useRef(null);
+  const binCanvasRef = useRef(null);
+  const bpskCanvasRef = useRef(null);
+
+  useEffect(() => {
+    const sineCanvas = sineCanvasRef.current;
+    const binCanvas = binCanvasRef.current;
+    const bpskCanvas = bpskCanvasRef.current;
+
+    const sineTable = sineCanvas.getContext('2d');
+    const binTable = binCanvas.getContext('2d');
+    const bpskTable = bpskCanvas.getContext('2d');
+
+    const sineChart = chartConfig(
+      sineTable,
+      sineData,
+      setAnimation(k, sineData, 'Sine Wave')
+    );
+    const binChart = chartConfig(
+      binTable,
+      binData,
+      setAnimation(k, binData, 'Bipolar Wave')
+    );
+    const bpskChart = chartConfig(
+      bpskTable,
+      bpskData,
+      setAnimation(k, bpskData, 'BPSK Wave')
+    );
+
+    return () => {
+      sineChart.destroy();
+      binChart.destroy();
+      bpskChart.destroy();
+    };
+  }, [props.count]);
+
+  return (
+    <Grid container spacing={2}>
+      <Grid item xs={12} sm={4}>
+        <canvas ref={sineCanvasRef} style={{ width: '100%' }}></canvas>
+      </Grid>
+      <Grid item xs={12} sm={4}>
+        <canvas ref={binCanvasRef} style={{ width: '100%' }}></canvas>
+      </Grid>
+      <Grid item xs={12} sm={4}>
+        <canvas ref={bpskCanvasRef} style={{ width: '100%' }}></canvas>
+      </Grid>
+    </Grid>
+  );
+};
+
+export default Wave;
